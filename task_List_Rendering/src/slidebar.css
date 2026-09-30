@@ -1,0 +1,17 @@
+
+.sidebar-button {
+  background: #6c3483;
+  color: white;
+  padding: 15px;
+  borderRadius: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-button:hover {
+  background: #512e5f; 
+  transform: translateY(-2px); 
+}

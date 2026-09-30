@@ -52,9 +52,9 @@ function App() {
           </Slidebar>
           <Slidebar>
             <div>
-            <p>مميز</p>
-            <h1>click me</h1>
-            <span>❤️</span>
+              <p>مميز</p>
+              <h1>click me</h1>
+              <span>❤️</span>
             </div>
           </Slidebar>
         </div>
