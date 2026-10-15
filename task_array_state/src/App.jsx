@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./App.css";
 // البيانات الأولية الموجودة في التحدي
 const initialProducts = [
   { id: 0, name: "baklava", count: 1 },
@@ -54,9 +54,20 @@ export default function ShoppingCart() {
       {products.map((product) => (
         <li key={product.id}>
           {product.name} ({product.count})
-          <button onClick={() => handleIncreaseClick(product.id)}>+</button>
-        
-          <button onClick={() => handleDecreaseClick(product.id)}>-</button>
+          <div className="btn-group">
+            <button
+              className="btn decrease"
+              onClick={() => handleIncreaseClick(product.id)}
+            >
+              +
+            </button>
+            <button
+              className="btn increase"
+              onClick={() => handleDecreaseClick(product.id)}
+            >
+              -
+            </button>
+          </div>
         </li>
       ))}
     </ul>
