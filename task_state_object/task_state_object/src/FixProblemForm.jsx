@@ -15,7 +15,7 @@ export default function ScoreBoard() {
   function handleFirstNameChange(e) {
     setPlayer({ ...player, firstName: e.target.value });
   }
-
+  
   function handleLastNameChange(e) {
     setPlayer({ ...player, lastName: e.target.value });
   }
