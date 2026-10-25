@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import LoanForm from './Loan'
+import { useState } from "react";
+import "./App.css";
+import LoanForm from "./Loan";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
   return (
     <>
-    <LoanForm></LoanForm>
+      <div>
+        <LoanForm></LoanForm>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

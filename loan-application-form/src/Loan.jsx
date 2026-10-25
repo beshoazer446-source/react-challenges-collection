@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import "./Loan.css";
+import Mycomponent from "./MyCompenent";
 export default function LoanForm() {
-  const [errorMsg,setErrorMsg] = useState(null)
+  const [errorMsg, setErrorMsg] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -13,12 +14,11 @@ export default function LoanForm() {
   });
   function handleFormSubmit(event) {
     event.preventDefault();
-    setErrorMsg(null)
-    const { age, phone } = form;  
-    if(age<18||age>100){
-      setErrorMsg("the age is not allowed")
-    
-    }else if(phone.length<10||phone.length>12){
+    setErrorMsg(null);
+    const { age, phone } = form;
+    if (age < 18 || age > 100) {
+      setErrorMsg("the age is not allowed");
+    } else if (phone.length < 10 || phone.length > 12) {
       setErrorMsg("the phone is not allowed");
     }
     setShowModal(true);
@@ -35,32 +35,35 @@ export default function LoanForm() {
       setShowModal(false);
     }
   }
+  function handlePhoneNumberInputChange(value) {
+    setForm({ ...form, phone: value });
+  }
+  function handleNameInputChange(value) {
+    setForm({ ...form, name: value });
+  }
+  function handleAgeInputChange(value) {
+    setForm({ ...form, age: value });
+  }
   return (
     <div onClick={handleDivClick} className="page">
       <form className="card">
         <h1 style={{ textAlign: "center" }}>Requesting a Loan</h1>
         <hr />
-        <label>
-          Name:
-          <input
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-          />
-        </label>
-        <label>
-          Phone Number:
-          <input
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          />
-        </label>
-        <label>
-          Age:
-          <input
-            value={form.age}
-            onChange={(e) => setForm({ ...form, age: e.target.value })}
-          />
-        </label>
+        <Mycomponent
+          inputName="Name"
+          handleChange={handleNameInputChange}
+          value={form.name}
+        />
+        <Mycomponent
+          inputName="phone number"
+          handleChange={handlePhoneNumberInputChange}
+          value={form.phone}
+        />
+        <Mycomponent
+          inputName="Age"
+          handleChange={handleAgeInputChange}
+          value={form.age}
+        />
         <label>
           Are you an employee?
           <input
@@ -88,7 +91,7 @@ export default function LoanForm() {
           Submit
         </button>
       </form>
-      <Modal errorMsg={errorMsg}  isVisible={showModal} />
+      <Modal errorMsg={errorMsg} isVisible={showModal} />
     </div>
   );
 }
